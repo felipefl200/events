@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { Event } from '../entities/Event'
 import { EventRepository } from './EventRepository'
 
 const eventSchema = new mongoose.Schema({
@@ -19,6 +20,7 @@ const eventSchema = new mongoose.Schema({
     price: {
         type: Array
     },
+    coupons: [String],
     city: String,
     participants: {
         type: Array,

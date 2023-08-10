@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { EventUseCase } from '../useCases/EventUseCase'
+import { Event } from '../entities/Event'
 class EventController {
     constructor(private eventUseCase: EventUseCase) { }
     async create(
@@ -7,9 +8,9 @@ class EventController {
         response: Response,
         next: NextFunction
     ) {
-        const eventData = request.body
+        const eventData: Event = request.body        
         try {
-            const createEvent = await this.eventUseCase.create(eventData)
+            await this.eventUseCase.create(eventData)
             return response.status(201).json({ message: 'Evento criado com sucesso.' })
         } catch (error) {
             next(error)

@@ -1,3 +1,4 @@
+import { Event } from '../entities/Event'
 import { EventRepository } from '../repositories/EventRepository'
 
 class EventUseCase {
@@ -6,7 +7,6 @@ class EventUseCase {
         const result = await this.eventRepository.add(eventData)
         return result
     }
-
 }
 
 export { EventUseCase }
